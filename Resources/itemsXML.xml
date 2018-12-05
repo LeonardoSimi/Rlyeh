@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ItemContainer>
+<Items>
+  <Item>
+    <ItemName>Bubble</ItemName>
+    <ID>01</ID>
+    <Des>Use it at your own risk!</Des>
+    <qt>0</qt>
+  </Item>
+  
+  <Item>
+    <ItemName>Scoop</ItemName>
+    <ID>02</ID>
+    <Des>Catch a friend with this revolutionary item!</Des>
+    <qt>0</qt>
+  </Item>
+
+  <Item>
+    <ItemName>Ocarina</ItemName>
+    <ID>03</ID>
+    <Des>A somewhat familiar tool, but be careful not to play the wrong song!</Des>
+    <qt>0</qt>
+  </Item>
+
+  <Item>
+    <ItemName>Strange Pill</ItemName>
+    <ID>04</ID>
+    <Des>Remember: don't accept pills from strangers!</Des>
+    <qt>0</qt>
+  </Item>
+
+  <Item>
+    <ItemName>Suspicious Potion</ItemName>
+    <ID>04</ID>
+    <Des>A mysterious potion with unknown effetcs. Don't take it if it's your unlucky day!</Des>
+    <qt>0</qt>
+  </Item>
+  
+</Items>
+ </ItemContainer>
