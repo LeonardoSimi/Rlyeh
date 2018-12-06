@@ -6,10 +6,12 @@ public class WeaponSwitcher : MonoBehaviour {
 
     public int weaponCount;
     public Player player;
+    public bool showFullBox;
 
     // Use this for initialization
     void Start () {
         player = this.GetComponent<Player>();
+        showFullBox = false;
 	}
 
     void Awake()
@@ -19,7 +21,7 @@ public class WeaponSwitcher : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C)) //delete soon pls
         {
             weaponCount += 1;
         }
@@ -27,8 +29,19 @@ public class WeaponSwitcher : MonoBehaviour {
         {
             weaponCount -= 1;
         }
+
+        if (Input.GetKey(KeyCode.Tab)) //if its pressed down
+        {
+            showFullBox = true; //bool to show weapon selector; implemented in showweapon.cs
+        }
+        else
+        {
+            showFullBox = false;
+        }
+
         weaponLimit();
         weaponEnable();
+        Debug.Log(showFullBox);
 	}
     void weaponLimit()
     {
