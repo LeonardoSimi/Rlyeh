@@ -13,7 +13,8 @@ public class ShowWeapon : MonoBehaviour {
     private Image[] weaponShow = new Image[6];
     [SerializeField]
     private Image thisBox;
-
+    [SerializeField]
+    private GameObject[] weaponBox;
 
     public Player player;
     public WeaponSwitcher weaponSwitcher;
@@ -31,7 +32,6 @@ public class ShowWeapon : MonoBehaviour {
     public GameObject soulsText;
     public GameObject livesText;
    
-
     // Use this for initialization
     void Start () {
         
@@ -40,6 +40,11 @@ public class ShowWeapon : MonoBehaviour {
         boxLimit.y = this.transform.position.y;
         boxLimit.x = 200.0f;
         thisBox.enabled = true;
+
+        foreach (GameObject i in weaponBox)
+        {
+            i.SetActive(false);
+        }
 
     }
 
@@ -51,18 +56,23 @@ public class ShowWeapon : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         //weaponEnable();
-        weaponSelect();
+        weaponBoxSee();
         showWeaponFullX = boxLimit.x;
 
     }
 
-    void weaponSelect()
+    void weaponBoxSee()
     {
         if (weaponSwitcher.showFullBox)
         {
             showWeaponFull.enabled = true;
             thisBox.enabled = false;
             showWeaponFull.transform.Translate(Vector3.right * trSpeed);
+
+            foreach (GameObject i in weaponBox)
+            {
+                i.SetActive(true);
+            }
 
             soulsImg.transform.parent = showWeaponFull.transform;
             livesImg.transform.parent = showWeaponFull.transform;
@@ -84,8 +94,18 @@ public class ShowWeapon : MonoBehaviour {
                 thisBox.enabled = true;
                 showWeaponFull.enabled = false;
 
+                foreach (GameObject i in weaponBox)
+                {
+                    i.SetActive(false);
+                }
             }
         }
+    }
+
+    void weaponSelect()
+    {
+        //oscura gli sprite
+        //prendi l'input
     }
 
     /*void weaponEnable()
