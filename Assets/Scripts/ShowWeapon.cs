@@ -31,6 +31,12 @@ public class ShowWeapon : MonoBehaviour {
     public GameObject livesImg;
     public GameObject soulsText;
     public GameObject livesText;
+
+    [SerializeField]
+    private Image unknSprite;
+    [SerializeField]
+    private Image[] weaponSprite;
+
    
     // Use this for initialization
     void Start () {
@@ -40,6 +46,7 @@ public class ShowWeapon : MonoBehaviour {
         boxLimit.y = this.transform.position.y;
         boxLimit.x = 200.0f;
         thisBox.enabled = true;
+
 
         foreach (GameObject i in weaponBox)
         {
@@ -51,14 +58,24 @@ public class ShowWeapon : MonoBehaviour {
     void Awake()
     {
         InitPos = showWeaponFull.transform.position;
+
     }
 
     // Update is called once per frame
     void Update () {
-        //weaponEnable();
+
         weaponBoxSee();
         showWeaponFullX = boxLimit.x;
+        weaponSee();
 
+        if (weaponSwitcher.showFullBox) //WIP
+        {
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                player.hasRock = true;
+            }
+            //ALTRI CON PAD INPUT
+        }
     }
 
     void weaponBoxSee()
@@ -102,139 +119,74 @@ public class ShowWeapon : MonoBehaviour {
         }
     }
 
-    void weaponSelect()
+    void weaponSee()
     {
         //oscura gli sprite
-        //prendi l'input
+        if (player.permStaff)
+        {
+            Image img = weaponBox[0].GetComponent<Image>();
+            img.sprite = weaponShow[0].sprite;
+
+        }
+        else if (!player.permStaff)
+        {
+            Image img = weaponBox[0].GetComponent<Image>();
+            img.sprite = unknSprite.sprite;
+            
+        }
+
+        if (player.permProjectile)
+        {
+            Image img = weaponBox[1].GetComponent<Image>();
+            img.sprite = weaponShow[1].sprite;
+        }
+        else if (!player.permProjectile)
+        {
+            Image img = weaponBox[1].GetComponent<Image>();
+            img.sprite = unknSprite.sprite;
+
+        }
+
+        if (player.permBomb)
+        {
+            Image img = weaponBox[2].GetComponent<Image>();
+            img.sprite = weaponShow[2].sprite;
+        }
+        else if (!player.permBomb)
+        {
+            Image img = weaponBox[2].GetComponent<Image>();
+            img.sprite = unknSprite.sprite;
+
+        }
+
+        if (player.permRock)
+        {
+            Image img = weaponBox[3].GetComponent<Image>();
+            img.sprite = weaponShow[3].sprite;
+        }
+        else if (!player.permRock)
+        {
+            Image img = weaponBox[3].GetComponent<Image>();
+            img.sprite = unknSprite.sprite;
+
+        }
+        if (player.permSword)
+        {
+            Image img = weaponBox[4].GetComponent<Image>();
+            img.sprite = weaponShow[4].sprite;
+        }
+        else if (!player.permSword)
+        {
+            Image img = weaponBox[4].GetComponent<Image>();
+            img.sprite = unknSprite.sprite;
+
+        }
     }
 
-    /*void weaponEnable()
+    void weaponSelect()
     {
-        if (weaponSwitcher.weaponCount == 0)
-        {
-            if (player.permProjectile)
-            {
-                weaponShow[0].enabled = true;
-                weaponShow[1].enabled = false;
-                weaponShow[2].enabled = false;
-                weaponShow[3].enabled = false;
-                weaponShow[4].enabled = false;
-                weaponShow[5].enabled = false;
-            }
-            else {
-                weaponShow[0].enabled = false;
-                weaponShow[1].enabled = false;
-                weaponShow[2].enabled = false;
-                weaponShow[3].enabled = false;
-                weaponShow[4].enabled = false;
-                weaponShow[5].enabled = false;
-            }
-        }
-        else if (weaponSwitcher.weaponCount == 1)
-        {
-            if (player.permSword)
-            {
-                weaponShow[0].enabled = false;
-                weaponShow[1].enabled = true;
-                weaponShow[2].enabled = false;
-                weaponShow[3].enabled = false;
-                weaponShow[4].enabled = false;
-                weaponShow[5].enabled = false;
-            }
-            else
-            {
-                weaponShow[0].enabled = true;
-                weaponShow[1].enabled = false;
-                weaponShow[2].enabled = false;
-                weaponShow[3].enabled = false;
-                weaponShow[4].enabled = false;
-                weaponShow[5].enabled = false;
-            }
-        }
-        else if (weaponSwitcher.weaponCount == 2)
-        {
-            if (player.permFire)
-            {
-                weaponShow[0].enabled = false;
-                weaponShow[1].enabled = false;
-                weaponShow[2].enabled = true;
-                weaponShow[3].enabled = false;
-                weaponShow[4].enabled = false;
-                weaponShow[5].enabled = false;
-            }
-            else
-            {
-                weaponShow[0].enabled = false;
-                weaponShow[1].enabled = false;
-                weaponShow[2].enabled = false;
-                weaponShow[3].enabled = false;
-                weaponShow[4].enabled = false;
-                weaponShow[5].enabled = false;
-            }
-        }
-        else if (weaponSwitcher.weaponCount == 3)
-        {
-            if (player.permRock)
-            {
-                weaponShow[0].enabled = false;
-                weaponShow[1].enabled = false;
-                weaponShow[2].enabled = false;
-                weaponShow[3].enabled = true;
-                weaponShow[4].enabled = false;
-                weaponShow[5].enabled = false;
-            }
-            else
-            {
-                weaponShow[0].enabled = true;
-                weaponShow[1].enabled = false;
-                weaponShow[2].enabled = false;
-                weaponShow[3].enabled = false;
-                weaponShow[4].enabled = false;
-                weaponShow[5].enabled = false;
-            }
-        }
-        else if (weaponSwitcher.weaponCount == 4)
-        {
-            if (player.permBomb)
-            {
-                weaponShow[0].enabled = false;
-                weaponShow[1].enabled = false;
-                weaponShow[2].enabled = false;
-                weaponShow[3].enabled = false;
-                weaponShow[4].enabled = true;
-                weaponShow[5].enabled = false;
-            }
-            else
-            {
-                weaponShow[0].enabled = true;
-                weaponShow[1].enabled = false;
-                weaponShow[2].enabled = false;
-                weaponShow[3].enabled = false;
-                weaponShow[4].enabled = false;
-                weaponShow[5].enabled = false;
-            }
-            }
-        else if (weaponSwitcher.weaponCount == 5)
-        {
-            if (player.permWhip)
-            {
-                weaponShow[0].enabled = false;
-                weaponShow[1].enabled = false;
-                weaponShow[2].enabled = false;
-                weaponShow[3].enabled = false;
-                weaponShow[4].enabled = false;
-                weaponShow[5].enabled = true;
-            }
-            else
-            {
-                weaponShow[0].enabled = true;
-                weaponShow[1].enabled = false;
-                weaponShow[2].enabled = false;
-                weaponShow[3].enabled = false;
-                weaponShow[4].enabled = false;
-                weaponShow[5].enabled = false;
-            }
-            }
-    } */
+
+    }
+   
 
 }

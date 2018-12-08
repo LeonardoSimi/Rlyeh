@@ -383,11 +383,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4273385631731542, guid: 26f2ab167c7f02547b7a1e427f8cd695, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.3498116
+      value: -0.10972309
       objectReference: {fileID: 0}
     - target: {fileID: 4273385631731542, guid: 26f2ab167c7f02547b7a1e427f8cd695, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.6000628
+      value: -0.17492962
       objectReference: {fileID: 0}
     - target: {fileID: 4273385631731542, guid: 26f2ab167c7f02547b7a1e427f8cd695, type: 2}
       propertyPath: m_LocalPosition.z
@@ -873,6 +873,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114475667580661192, guid: 2ae9bc3021f2ab94f8efcb923dd94e5a,
+        type: 2}
+      propertyPath: weaponSwitcher
+      value: 
+      objectReference: {fileID: 19006753}
     - target: {fileID: 114475125275839966, guid: 2ae9bc3021f2ab94f8efcb923dd94e5a,
         type: 2}
       propertyPath: player
@@ -883,11 +888,6 @@ Prefab:
       propertyPath: weaponAmmos
       value: 
       objectReference: {fileID: 19006762}
-    - target: {fileID: 114475667580661192, guid: 2ae9bc3021f2ab94f8efcb923dd94e5a,
-        type: 2}
-      propertyPath: weaponSwitcher
-      value: 
-      objectReference: {fileID: 19006753}
     - target: {fileID: 1048356256951112, guid: 2ae9bc3021f2ab94f8efcb923dd94e5a, type: 2}
       propertyPath: m_Name
       value: UI Canvas

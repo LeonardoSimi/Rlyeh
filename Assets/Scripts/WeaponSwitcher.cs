@@ -33,14 +33,18 @@ public class WeaponSwitcher : MonoBehaviour {
         if (Input.GetKey(KeyCode.Tab)) //if its pressed down
         {
             showFullBox = true; //bool to show weapon selector; implemented in showweapon.cs
+            Time.timeScale = 0.2f;
+            player.canMove = false;
         }
         else
         {
             showFullBox = false;
+            Time.timeScale = 1;
+            player.canMove = true;
         }
 
         weaponLimit();
-        weaponEnable();
+        //weaponEnable();
         Debug.Log(showFullBox);
 	}
     void weaponLimit()
@@ -54,7 +58,7 @@ public class WeaponSwitcher : MonoBehaviour {
             weaponCount = 5;
         }
     }
-    void weaponEnable()
+    /*void weaponEnable()
     {
         switch (weaponCount)
         {
@@ -177,7 +181,7 @@ public class WeaponSwitcher : MonoBehaviour {
                 {
                     weaponCount = 0;
                 }
-                break; */
+                break; 
         }
-    }
+    }*/
 }
