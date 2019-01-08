@@ -204,7 +204,8 @@ public class Player : MonoBehaviour {
 
             if (_isOnGround == true || _isInWater == true)
             {
-                if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+                //if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+                if (Input.GetButtonDown("Jump"))
                 {
                     Debug.Log("Jump");
                     AudioSource.PlayClipAtPoint(_jumpSFX, Camera.main.transform.position, 0.5f);
