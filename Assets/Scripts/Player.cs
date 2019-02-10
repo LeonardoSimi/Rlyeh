@@ -57,8 +57,10 @@ public class Player : MonoBehaviour {
 
     public bool canMove;
 
+    public bool damageTaken;
 
     public int Souls;
+    public int hitsTaken;
 
     public RockSpriteChange rockSpriteChange;
     public WeaponAmmos weaponAmmos;
@@ -78,7 +80,7 @@ public class Player : MonoBehaviour {
         isRight = true;
         isLeft = false;
         pLives = 3; //mettilo nel gamemanager e aggiustalo
-
+        damageTaken = false;
         rockSpriteChange = this.GetComponent<RockSpriteChange>();
         weaponAmmos = this.GetComponent<WeaponAmmos>();
 
@@ -98,6 +100,7 @@ public class Player : MonoBehaviour {
     {
         //originalColl.size = new Vector2(0.1f, 0.2f);
         orSpeed = _speed;
+        
     }
 
 
@@ -110,6 +113,7 @@ public class Player : MonoBehaviour {
             Movement();
             ShootProjectile();
         }
+        lifeLost();
 
 	}
 
@@ -133,20 +137,22 @@ public class Player : MonoBehaviour {
     {
         if (rockSpriteChange.rockChange == false)
         {
-            if (other.tag == "Enemy" || other.tag == "Bone")
+            if (other.tag == "Enemy" || other.tag == "Bone" || other.tag == "GhostExplosion")
             {
                 if (!invulnerable)
                 {
                     StartCoroutine(pDamage());
                     StartCoroutine(JustHurt());
+                    
                 }
             }
-            else if (other.tag == "GhostExplosion")
+            /*else if (other.tag == "GhostExplosion")
             {
                 StartCoroutine(pDamage());
                 StartCoroutine(JustHurt());
-                StartCoroutine(speedLoss());
-            }
+                //StartCoroutine(speedLoss());
+                
+            }*/
 
         }
 
@@ -160,16 +166,30 @@ public class Player : MonoBehaviour {
 
     IEnumerator pDamage()
     {
-        pLives -= 1;
+
+        //pLives -= 1;
+        hitsTaken = hitsTaken - 1;
+        yield return new WaitForSeconds(invulTime);
+        damageTaken = true;
+        yield return new WaitForSeconds(0.1f);
+        damageTaken = false;
         yield return new WaitForSeconds(2.0f);
     }
 
-    IEnumerator speedLoss()
+    private void lifeLost()
+    {
+        if (hitsTaken <= 0)
+        {
+            pLives = pLives - 1;
+        }
+    }
+
+    /*IEnumerator speedLoss()
     {
         _speed = _speed - 2;
         yield return new WaitForSeconds (5.0f);
         _speed = orSpeed;
-    }
+    }*/
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -218,6 +238,7 @@ public class Player : MonoBehaviour {
         }
 
     }
+
 
     public void getDirection()
     {
@@ -273,6 +294,7 @@ public class Player : MonoBehaviour {
             }
         }
     }
+
 
 
 

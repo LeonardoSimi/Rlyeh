@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour {
 
         //obelisk = GameObject.Find("obelisk").GetComponent<ObeliskController>();
         obelisk = GameObject.FindGameObjectsWithTag("Obelisk");
-
         obeliskController = new ObeliskController[obelisk.Length];
 
         for (int i = 0; i < obelisk.Length; i++)
@@ -50,7 +49,7 @@ public class GameManager : MonoBehaviour {
         if (previousPLives != player.pLives)
         {
             previousPLives = player.pLives;
-            StartCoroutine(lifeLostRespawn());
+            //StartCoroutine(lifeLostRespawn());
         }
 
         friendlyMinions = GameObject.FindGameObjectsWithTag("FriendlyEnemy");
@@ -60,7 +59,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    IEnumerator lifeLostRespawn()
+    /*IEnumerator lifeLostRespawn()
     {
         yield return new WaitForSeconds(0.2f);
         if (player != null)
@@ -68,7 +67,7 @@ public class GameManager : MonoBehaviour {
             player.transform.position = new Vector3(newPlayerStartPosition.x, newPlayerStartPosition.y, player.transform.position.z);
             yield return new WaitForSeconds(2.0f);
         }
-    }
+    }*/
 
 
     /*void GameOver()    TODO

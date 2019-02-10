@@ -42,6 +42,8 @@ public class GhostExplode : MonoBehaviour {
                 spriteRenderer.sprite = explosionSprite;
                 this.tag = "GhostExplosion";
                 enemyAI.enabled = false;
+                yield return new WaitForSeconds(1f);
+                this.tag = "IdleTag";
                 StartCoroutine(colliderSpawn());
                 
             }
