@@ -10,7 +10,7 @@ public class ItemScoop : MonoBehaviour {
     private bool oneTime;
     private float minDist;
     //public EnemyAI enemyAI;
-    private float cooldown = 3.0f;
+    private float cooldown = 7.0f;
     private bool enemyFound;
     public Player player;
 
@@ -21,7 +21,7 @@ public class ItemScoop : MonoBehaviour {
 
         quantity = 3; //TEMP
         enemyFound = false;
-        minDist = 7.0f;
+        minDist = 3.0f;
         oneTime = false;
         //enemyAI = GameObject.Find("EnemyAI").GetComponent<EnemyAI>();
         player = GameObject.Find("Player").GetComponent<Player>();
@@ -48,6 +48,7 @@ public class ItemScoop : MonoBehaviour {
 
     IEnumerator ScoopUse()
     {
+        Debug.Log("SCOOP USED");
         oneTime = true;
         quantity = quantity - 1;
 
@@ -57,18 +58,19 @@ public class ItemScoop : MonoBehaviour {
         t_collider.radius = minDist;
         t_collider.isTrigger = true;
         yield return new WaitForSeconds(0.3f);
+        Debug.Log("finito SCOOP");
         Destroy(t_collider);
-        yield return new WaitForSeconds(cooldown);
+        //yield return new WaitForSeconds(cooldown);
         oneTime = false;
         enemyFound = false;
-        Debug.Log("finito");
+
     }
 
 
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Enemy")
+        if (other.tag == "Enemy" || other.tag == "IdleTag")
         {
             enemyFound = true;
             other.tag = "FriendlyEnemy";

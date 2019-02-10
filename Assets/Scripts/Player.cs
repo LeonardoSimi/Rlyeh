@@ -63,8 +63,8 @@ public class Player : MonoBehaviour {
     public RockSpriteChange rockSpriteChange;
     public WeaponAmmos weaponAmmos;
 
-    public float invulTime = 2.5f; 
-    private bool invulnerable = false;
+    public float invulTime; 
+    public bool invulnerable = false;
 
     public BoxCollider2D coll;
     public BoxCollider2D originalColl;

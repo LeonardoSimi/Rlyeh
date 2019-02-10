@@ -39,10 +39,13 @@ public class EnemyAI : MonoBehaviour
 
     public ParticleSystem explodeParticles;
 
+    public bool canMove;
+
 
     // Use this for initialization
     void Start()
     {
+        canMove = true;
         dps = false;
         player = GameObject.Find("Player").GetComponent<Player>();
         //damageText = GameObject.Find("DmgText").GetComponent<DamageText>();
@@ -94,6 +97,9 @@ public class EnemyAI : MonoBehaviour
 
     private void newGetToPlayer()
     {
+        if (canMove)
+        {
+    
         Collider2D[] foundColliders = Physics2D.OverlapCircleAll(transform.position, minDist);
 
         playerFound = false;
@@ -117,6 +123,7 @@ public class EnemyAI : MonoBehaviour
             Wander();
         }
     }
+}
 
 
 
@@ -158,6 +165,22 @@ public class EnemyAI : MonoBehaviour
         else if (other.tag == "Staff")
         {
             selfDamage = 1;
+            GameObject dmgTxt = Instantiate<GameObject>(damageText, new Vector3(transform.position.x, 0.5f, 0), Quaternion.identity);
+            dmgTxt.transform.parent = this.transform;
+            hp -= selfDamage;
+        }
+
+        else if (other.tag == "Bubble")
+        {
+            selfDamage = 8;
+            GameObject dmgTxt = Instantiate<GameObject>(damageText, new Vector3(transform.position.x, 0.5f, 0), Quaternion.identity);
+            dmgTxt.transform.parent = this.transform;
+            hp -= selfDamage;
+        }
+
+        else if (other.tag == "FriendlyEnemy")
+        {
+            selfDamage = 5;
             GameObject dmgTxt = Instantiate<GameObject>(damageText, new Vector3(transform.position.x, 0.5f, 0), Quaternion.identity);
             dmgTxt.transform.parent = this.transform;
             hp -= selfDamage;

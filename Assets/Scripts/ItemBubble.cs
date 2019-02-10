@@ -28,7 +28,7 @@ public class ItemBubble : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P)) //PROVVISORIO
         {
             if (oneTime == false)
             {
@@ -75,11 +75,14 @@ public class ItemBubble : MonoBehaviour
     IEnumerator bubbleUse() //public?
     {
         oneTime = true;
+        player.invulnerable = true;
+        player.invulTime = cooldown;
         player.coll.size = player.coll.size * 2;
         player.tag = "Bubble";
         yield return new WaitForSeconds(cooldown);
         Debug.Log("3 secondi passati");
         player.coll.size = player.originalColl.size;
+        player.invulnerable = false;
         player.tag = "player";
         yield return new WaitForSeconds(cooldown);
         oneTime = false;

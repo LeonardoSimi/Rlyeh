@@ -10,7 +10,7 @@ public class FriendlyEnemyAI : MonoBehaviour {
 	void Start () {
 
         player = GameObject.Find("Player").GetComponent<Player>();
-
+        pos = transform.position;
     }
 
     // Update is called once per frame

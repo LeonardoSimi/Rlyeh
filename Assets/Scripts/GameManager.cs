@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
      private Vector2 newPlayerStartPosition;
 
+    private GameObject[] friendlyMinions;
+
     //private Vector3 LevelStartPosition;
 
 	// Use this for initialization
@@ -50,7 +52,12 @@ public class GameManager : MonoBehaviour {
             previousPLives = player.pLives;
             StartCoroutine(lifeLostRespawn());
         }
-        
+
+        friendlyMinions = GameObject.FindGameObjectsWithTag("FriendlyEnemy");
+        if (friendlyMinions.Length > 1)
+        {
+            Destroy(friendlyMinions[0]);
+        }
     }
 
     IEnumerator lifeLostRespawn()

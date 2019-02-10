@@ -13,11 +13,16 @@ public class AIEnabler : MonoBehaviour {
 	void Update () {
         if (this.tag == "Enemy")
         {
+            Debug.Log("enemy tag " + this.tag);
             this.GetComponent<EnemyAI>().enabled = true;
+            this.GetComponent<FriendlyEnemyAI>().enabled = false;
+
         }
         else if (this.tag == "FriendlyEnemy")
         {
+            Debug.Log("enemy tag " + this.tag);
             this.GetComponent<FriendlyEnemyAI>().enabled = true;
+            this.GetComponent<EnemyAI>().enabled = false;
         }
-	}
+    }
 }

@@ -20,6 +20,7 @@ TagManager:
   - FriendlyEnemy
   - Staff
   - GhostExplosion
+  - IdleTag
   layers:
   - Default
   - TransparentFX

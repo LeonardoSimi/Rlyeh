@@ -9,10 +9,11 @@ public class GhostExplode : MonoBehaviour {
     public Sprite explosionSprite; //TEMP
     private SpriteRenderer spriteRenderer;
     public CircleCollider2D explosionCollider;
+    private float chargeUpTime;
 
 	// Use this for initialization
 	void Start () {
-
+        chargeUpTime = 1.2f;
         enemyAI = this.GetComponent<EnemyAI>();
         spriteRenderer = this.GetComponent<SpriteRenderer>();
         explosionCollider.enabled = false;
@@ -20,10 +21,13 @@ public class GhostExplode : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Dis();
-	}
+        if (this.tag == "Enemy")
+        {
+            StartCoroutine(Dis());
+        }
+    }
 
-    void Dis()
+    IEnumerator Dis()
     {
         if (playerT)
         {
@@ -31,6 +35,9 @@ public class GhostExplode : MonoBehaviour {
             //print("Distance to player: " + dist);
             if (dist <= 13.0f)
             {
+                this.tag = "IdleTag"; //no damage to player while exploding
+                enemyAI.canMove = false;
+                yield return new WaitForSeconds(chargeUpTime);
                 Debug.Log("BOOM");
                 spriteRenderer.sprite = explosionSprite;
                 this.tag = "GhostExplosion";

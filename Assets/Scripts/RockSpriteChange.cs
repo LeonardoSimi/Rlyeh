@@ -37,6 +37,7 @@ public class RockSpriteChange : MonoBehaviour {
     {
         if (rockChange)
         {
+            player.invulTime = 2.5f;
             rb.gravityScale = 10;
             this.GetComponent<SpriteRenderer>().sprite = rockMoffi;
             float horizontalInput = Input.GetAxis("Horizontal");
