@@ -11,6 +11,23 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1969367586233660}
   m_IsPrefabParent: 1
+--- !u!1 &1010244867727664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4689620565273998}
+  - component: {fileID: 58548728589919278}
+  - component: {fileID: 114440861887230726}
+  m_Layer: 0
+  m_Name: itemThunder
+  m_TagString: Thunder
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1491975473513254
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,6 +132,19 @@ Transform:
   m_Father: {fileID: 4707772360210540}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -33.917}
+--- !u!4 &4689620565273998
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1010244867727664}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4707772360210540}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4707772360210540
 Transform:
   m_ObjectHideFlags: 1
@@ -128,6 +158,7 @@ Transform:
   - {fileID: 4267937357809174}
   - {fileID: 4487782692647618}
   - {fileID: 224695454537332870}
+  - {fileID: 4689620565273998}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -151,6 +182,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &58548728589919278
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1010244867727664}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.2
 --- !u!58 &58746600320673320
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -265,6 +311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponCount: 0
   player: {fileID: 0}
+  showFullBox: 0
 --- !u!114 &114068534689299946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -335,6 +382,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponCount: 0
   player: {fileID: 0}
+  showFullBox: 0
+--- !u!114 &114440861887230726
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1010244867727664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 313fa6006cfd0be4d972616a4f37d2ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quantity: 11
+  oneTime: 0
+  player: {fileID: 114490030433494932}
+  enemyAI: {fileID: 0}
+  cooldown: 0
+  coll: {fileID: 58548728589919278}
 --- !u!114 &114490030433494932
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -376,10 +441,13 @@ MonoBehaviour:
   permSword: 1
   permStaff: 1
   canMove: 0
+  damageTaken: 0
   Souls: 0
+  hitsTaken: 0
   rockSpriteChange: {fileID: 0}
   weaponAmmos: {fileID: 0}
   invulTime: 2.5
+  invulnerable: 0
   coll: {fileID: 61739129058502486}
   originalColl: {fileID: 61898622062260016}
 --- !u!114 &114506875966634024

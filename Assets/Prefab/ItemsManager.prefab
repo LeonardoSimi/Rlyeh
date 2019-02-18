@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4922796721291996}
   - component: {fileID: 114749939689162136}
   - component: {fileID: 114487833654976400}
+  - component: {fileID: 114569420705914870}
   m_Layer: 0
   m_Name: ItemsManager
   m_TagString: Untagged
@@ -53,9 +54,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item_Scoop: {fileID: 1366400857533522, guid: 7d2686986fcec1c458defe0fffb71268, type: 2}
-  quantity: 0
+  quantity: 11
+  oneTime: 0
+  cooldown: 7
+  player: {fileID: 114490030433494932, guid: 89599aae018271640be5eec5a17dccf1, type: 2}
+--- !u!114 &114569420705914870
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1769117032451734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 313fa6006cfd0be4d972616a4f37d2ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quantity: 11
   oneTime: 0
   player: {fileID: 114490030433494932, guid: 89599aae018271640be5eec5a17dccf1, type: 2}
+  enemyAI: {fileID: 0}
+  cooldown: 0
 --- !u!114 &114749939689162136
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -69,6 +87,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item_Bubble: {fileID: 1351911494072874, guid: 2c9b821c1c0734b4eb917a2755ce51d1,
     type: 2}
-  quantity: 1
+  quantity: 3
   oneTime: 0
   player: {fileID: 114490030433494932, guid: 89599aae018271640be5eec5a17dccf1, type: 2}

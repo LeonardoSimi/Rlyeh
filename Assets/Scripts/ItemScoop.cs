@@ -10,7 +10,7 @@ public class ItemScoop : MonoBehaviour {
     private bool oneTime;
     private float minDist;
     //public EnemyAI enemyAI;
-    private float cooldown = 7.0f;
+    public float cooldown = 7.0f;
     private bool enemyFound;
     public Player player;
 

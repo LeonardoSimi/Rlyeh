@@ -21,6 +21,7 @@ TagManager:
   - Staff
   - GhostExplosion
   - IdleTag
+  - Thunder
   layers:
   - Default
   - TransparentFX

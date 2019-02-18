@@ -9,8 +9,8 @@ public class EnemyAI : MonoBehaviour
     public Player player;
     //public DamageText damageText;
 
-    [SerializeField]
-    private float hp;
+
+    public float hp;
     [SerializeField]
     private bool dps;
 
@@ -41,6 +41,8 @@ public class EnemyAI : MonoBehaviour
 
     public bool canMove;
 
+    public bool hitThunder;
+
 
     // Use this for initialization
     void Start()
@@ -49,6 +51,7 @@ public class EnemyAI : MonoBehaviour
         dps = false;
         player = GameObject.Find("Player").GetComponent<Player>();
         //damageText = GameObject.Find("DmgText").GetComponent<DamageText>();
+        hitThunder = false;
     }
 
     void Awake()
@@ -183,6 +186,15 @@ public class EnemyAI : MonoBehaviour
             selfDamage = 5;
             GameObject dmgTxt = Instantiate<GameObject>(damageText, new Vector3(transform.position.x, 0.5f, 0), Quaternion.identity);
             dmgTxt.transform.parent = this.transform;
+            hp -= selfDamage;
+        }
+
+        else if (other.tag == "Thunder")
+        {
+            selfDamage = 15;
+            GameObject dmgTxt = Instantiate<GameObject>(damageText, new Vector3(transform.position.x, 0.5f, 0), Quaternion.identity);
+            dmgTxt.transform.parent = this.transform;
+            hitThunder = true;
             hp -= selfDamage;
         }
     }
