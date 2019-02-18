@@ -1290,21 +1290,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 22
       objectReference: {fileID: 0}
-    - target: {fileID: 114749939689162136, guid: bcbdab0d276bfb2418c105bf00fe1be5,
+    - target: {fileID: 114092693999172546, guid: bcbdab0d276bfb2418c105bf00fe1be5,
         type: 2}
-      propertyPath: quantity
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114487833654976400, guid: bcbdab0d276bfb2418c105bf00fe1be5,
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 19006758}
+    - target: {fileID: 114092693999172546, guid: bcbdab0d276bfb2418c105bf00fe1be5,
         type: 2}
-      propertyPath: quantity
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 114569420705914870, guid: bcbdab0d276bfb2418c105bf00fe1be5,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: itemOcarina
+      value: 
+      objectReference: {fileID: 664053831}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bcbdab0d276bfb2418c105bf00fe1be5, type: 2}
   m_IsPrefabParent: 0
@@ -2249,6 +2244,12 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 639176990}
+--- !u!114 &664053831 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114440861887230726, guid: 89599aae018271640be5eec5a17dccf1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1876201583}
+  m_Script: {fileID: 11500000, guid: 313fa6006cfd0be4d972616a4f37d2ad, type: 3}
 --- !u!1001 &797713386
 Prefab:
   m_ObjectHideFlags: 0

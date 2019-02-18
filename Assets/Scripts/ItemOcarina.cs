@@ -51,7 +51,7 @@ public class ItemOcarina : MonoBehaviour
         }*/
     }
 
-    private IEnumerator OcarinaUse()
+    public IEnumerator OcarinaUse()
     {
         if (quantity > 0)
         {
