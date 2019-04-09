@@ -442,6 +442,7 @@ MonoBehaviour:
   permStaff: 1
   canMove: 0
   damageTaken: 0
+  isStrong: 0
   Souls: 0
   hitsTaken: 0
   rockSpriteChange: {fileID: 0}

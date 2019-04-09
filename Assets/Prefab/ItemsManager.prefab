@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114749939689162136}
   - component: {fileID: 114487833654976400}
   - component: {fileID: 114092693999172546}
+  - component: {fileID: 114270114019828858}
   m_Layer: 0
   m_Name: ItemsManager
   m_TagString: Untagged
@@ -60,6 +61,21 @@ MonoBehaviour:
   oneTime: 0
   player: {fileID: 0}
   itemOcarina: {fileID: 0}
+--- !u!114 &114270114019828858
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1769117032451734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff53637424614864db885ea5ab128d88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 0
+  quantity: 5
+  oneTime: 0
+  player: {fileID: 0}
 --- !u!114 &114487833654976400
 MonoBehaviour:
   m_ObjectHideFlags: 1

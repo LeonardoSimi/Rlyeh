@@ -59,6 +59,8 @@ public class Player : MonoBehaviour {
 
     public bool damageTaken;
 
+    public bool isStrong; //refer to itempill.cs
+
     public int Souls;
     public int hitsTaken;
 
@@ -91,6 +93,8 @@ public class Player : MonoBehaviour {
         hasRock = false;
         hasProjectile = false;
         hasBomb = false;
+
+        isStrong = false;
 
         //coll = this.GetComponent<BoxCollider2D>();
         

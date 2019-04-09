@@ -69,6 +69,11 @@ public class EnemyAI : MonoBehaviour
         newGetToPlayer();
         Death();
 
+        if (player.isStrong == true)
+        {
+            selfDamage = selfDamage * 2f;
+        }
+
         //CRITICAL CRITICAL CRITICAL CRITICAL CRITICAL
         if (this.tag != "Enemy")
         {
@@ -110,6 +115,7 @@ public class EnemyAI : MonoBehaviour
         foreach (Collider2D coll in foundColliders)
         {
             if (coll.tag == "player")
+
                 playerFound = true;
         }
 
