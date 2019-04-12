@@ -22,6 +22,7 @@ TagManager:
   - GhostExplosion
   - IdleTag
   - Thunder
+  - Elevator
   layers:
   - Default
   - TransparentFX
