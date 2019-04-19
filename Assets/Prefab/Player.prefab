@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 114403298942967272}
   - component: {fileID: 114601014325258538}
   - component: {fileID: 114885105191240372}
+  - component: {fileID: 95111895825308990}
   m_Layer: 0
   m_Name: Player
   m_TagString: player
@@ -224,18 +225,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.000525577, y: 0.009197332}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.140625, y: 0.15625}
+    oldSize: {x: 0.16, y: 0.16}
     newSize: {x: 0.18, y: 0.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.140625, y: 0.15625}
+  m_Size: {x: 0.10068226, y: 0.11998621}
   m_EdgeRadius: 0
 --- !u!61 &61898622062260016
 BoxCollider2D:
@@ -249,19 +250,37 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0004294999, y: 0.00085900724}
+  m_Offset: {x: 0.000096060336, y: 0.009510614}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.140625, y: 0.15625}
+    oldSize: {x: 0.16, y: 0.16}
     newSize: {x: 0.18, y: 0.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.14306319, y: 0.15705025}
+  m_Size: {x: 0.09996711, y: 0.12082681}
   m_EdgeRadius: 0
+--- !u!95 &95111895825308990
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1969367586233660}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aaaeee1719dda2048896f38587814ff9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!108 &108106948612839684
 Light:
   m_ObjectHideFlags: 1
@@ -323,7 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc338f92211b20c409de4aa1145a6326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regularMoffi: {fileID: 21300000, guid: 1f61006f59bd1694a83f1344f89aba9e, type: 3}
+  regularMoffi: {fileID: 21300000, guid: 4c2e5e4098daf224688b7ad34966842d, type: 3}
   rockMoffi: {fileID: 21300000, guid: e5345891c294f7544b41975fb04d1830, type: 3}
   player: {fileID: 0}
   rockChange: 0
@@ -641,7 +660,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 1f61006f59bd1694a83f1344f89aba9e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4c2e5e4098daf224688b7ad34966842d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
