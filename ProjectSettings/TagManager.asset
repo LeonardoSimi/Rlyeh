@@ -23,6 +23,7 @@ TagManager:
   - IdleTag
   - Thunder
   - Elevator
+  - InvulEye
   layers:
   - Default
   - TransparentFX

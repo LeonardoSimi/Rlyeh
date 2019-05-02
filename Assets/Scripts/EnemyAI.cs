@@ -203,6 +203,15 @@ public class EnemyAI : MonoBehaviour
             hitThunder = true;
             hp -= selfDamage;
         }
+
+        else if (this.tag == "InvulEye")
+        {
+            selfDamage = 0;
+            GameObject dmgTxt = Instantiate<GameObject>(damageText, new Vector3(transform.position.x, 0.5f, 0), Quaternion.identity);
+            dmgTxt.transform.parent = this.transform;
+            hitThunder = true;
+            hp -= selfDamage;
+        }
     }
 
     private IEnumerator FireDPS()

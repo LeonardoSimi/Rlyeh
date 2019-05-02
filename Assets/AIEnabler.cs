@@ -11,7 +11,7 @@ public class AIEnabler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (this.tag == "Enemy")
+        if (this.tag == "Enemy" || this.tag == "InvulEye")
         {
             Debug.Log("enemy tag " + this.tag);
             this.GetComponent<EnemyAI>().enabled = true;
