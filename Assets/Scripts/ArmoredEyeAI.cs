@@ -82,11 +82,13 @@ public class ArmoredEyeAI : MonoBehaviour {
         Debug.Log("shoot eye");
         Instantiate(proj, this.transform.position, Quaternion.identity);
         ammoInt = ammoInt - 1;
+        enemyAI.canMove = false;
         yield return new WaitForSeconds(0.7f);
     }
 
     IEnumerator eyeReload()
     {
+        enemyAI.canMove = true;
         yield return new WaitForSeconds(4f);
         ammoInt = startingAmmo;
 
