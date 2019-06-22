@@ -7,107 +7,80 @@ public class RavioliAI : MonoBehaviour {
     public Player player;
     public EnemyAI enemyAI;
     public GameObject tinyRavioli;
-    private Rigidbody2D rb;
+    private Rigidbody2D _rigidBody2D;
     private bool groundColl;
     [SerializeField]
-    private float jumpFloat;
+    public float jumpHeight;
     public LayerMask groundLayer;
-    private bool hasStarted;
-    private Vector2 startingY;
-    private float step;
+    private bool isJumping;
+    private bool canJump;
+    private Vector2 randomDir;
+    [SerializeField]
+    private GameObject miniSlime;
 
     // Use this for initialization
-    void Start () {
+    void Start() {
         player = gameObject.GetComponent<Player>();
         enemyAI = this.GetComponent<EnemyAI>();
-        rb = this.GetComponent<Rigidbody2D>();
-        //StartCoroutine(startingCoroutine());
+        //StartCoroutine(startingCoroutine());     
     }
 
     private void Awake()
     {
-        startingY = new Vector2(0, this.transform.position.y);
-        hasStarted = false;
-        groundColl = false;
+        _rigidBody2D = this.GetComponent<Rigidbody2D>();
+        StartCoroutine(jumpCooldown());
+        canJump = false;
+
     }
 
-    // Update is called once per frame
-    void Update () {
-        jumpingMovement();
-        Debug.Log("ravioli ground " + groundColl);
-        IsGrounded();
-        step = enemyAI._speed * Time.deltaTime;
-    }
-
-    void jumpingMovement()
+    private void Update()
     {
-        if (enemyAI.canMove)
+        randomDir = new Vector2(Random.Range(1, -2), 0);
+        if (canJump && !isJumping)
         {
-            StartCoroutine(jumpCoroutine());
+            _rigidBody2D.velocity = transform.up * jumpHeight;
+            transform.Translate(randomDir * Time.deltaTime);
+            
+            //isJumping = true;
         }
 
-        if (groundColl)
+        Debug.Log("Ravioli is jumping" + isJumping);
+        Debug.Log("Ravioli can jump " + canJump);
+        Debug.Log(randomDir);
+
+        enemyAI.canMove = false;
+
+        //Wander();
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
         {
-            StartCoroutine(jumpCooldown());
+            isJumping = false;
         }
     }
 
-   
-
-    IEnumerator jumpCoroutine()
+        private IEnumerator jumpCooldown()
     {
-        while (groundColl == false)
+        while (true)
         {
-            rb.velocity = new Vector2(1f, 1f);
-            yield return new WaitForSeconds(0.5f);
-            //rb.velocity = new Vector2(0.0f, -1f); lascia commentato
-            transform.position = Vector2.MoveTowards(transform.position, startingY, step*2);
-            yield return new WaitForSeconds(0.5f);
+            canJump = true;
+            yield return new WaitForSeconds(0.2f);
+            canJump = false;
+            yield return new WaitForSeconds(2f);
+
         }
-
     }
 
-    IEnumerator jumpCooldown()
+    void OnDestroy()
     {
-            rb.velocity = new Vector2(0.0f, -0.0f);
-            transform.position = transform.position;
-            enemyAI.canMove = false;
-            yield return new WaitForSeconds(jumpFloat);
-            enemyAI.canMove = true;
-            StartCoroutine(startingCoroutine());
+        Instantiate(miniSlime, transform.position, Quaternion.identity);
+        Instantiate(miniSlime, transform.position, Quaternion.identity);
+        Instantiate(miniSlime, transform.position, Quaternion.identity);
+        Instantiate(miniSlime, transform.position, Quaternion.identity);
+
     }
 
-    IEnumerator startingCoroutine()
-    {
-        hasStarted = false;
-        yield return new WaitForSeconds(0.2f);
-        hasStarted = true;
-    }
-
-    bool IsGrounded()
-    {
-        if (hasStarted == true)
-        {
-            Vector2 position = this.transform.position;
-            Vector2 direction = Vector2.down;
-            float distance = 1.6f;
-
-            RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, groundLayer);
-            if (hit.collider != null)
-            {
-                Debug.Log("ravioli ground true");
-                groundColl = true;
-                return true;
-            }
-            Debug.Log("ravioli ground false");
-            groundColl = false;
-            return false;
-        }
-        else
-        {
-            groundColl = false;
-        }
-        return false;
-    }
-    
 }
+

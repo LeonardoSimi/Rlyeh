@@ -18,7 +18,7 @@ public class EnemyAI : MonoBehaviour
 
     public float selfDamage;
 
-    Vector3 dir;
+    public Vector3 dir;
 
     public float _speed = 4.0f;
 
@@ -32,7 +32,7 @@ public class EnemyAI : MonoBehaviour
 
     public float delta = 1.5f; //movement max off chasing
 
-    private Vector3 startPos;
+    public Vector3 startPos;
 
     public bool playerFound;
     public bool enemyFound;
@@ -42,6 +42,7 @@ public class EnemyAI : MonoBehaviour
     public bool canMove;
 
     public bool hitThunder;
+
 
 
     // Use this for initialization
@@ -121,7 +122,7 @@ public class EnemyAI : MonoBehaviour
 
         if (playerFound)
         {
-            Vector3 dir = (player.transform.position - transform.position).normalized;
+            dir = (player.transform.position - transform.position).normalized;
             dir.y = 0.0f; //not changing y dir
 
             transform.Translate(dir * _speed * Time.deltaTime);
