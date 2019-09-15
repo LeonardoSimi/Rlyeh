@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
+//using TMPro;
 
 
 
@@ -13,7 +13,7 @@ public class ObeliskController : MonoBehaviour {
 
     [SerializeField]
     private Image AlertBox;
-    public TextMeshProUGUI textDisplay;
+    //public TextMeshProUGUI textDisplay;
 
 
     //public bool CheckpointPressed;
@@ -36,7 +36,7 @@ public class ObeliskController : MonoBehaviour {
     void Awake()
     {
         AlertBox.enabled = false;
-        textDisplay.enabled = false;
+        //textDisplay.enabled = false;
         obeliskPosition = transform.position;
     }
 
@@ -70,10 +70,10 @@ public class ObeliskController : MonoBehaviour {
     IEnumerator AlertBoxActivate()
     {
         AlertBox.enabled = true;
-        textDisplay.enabled = true;
+        //textDisplay.enabled = true;
         yield return new WaitForSeconds(3);
         AlertBox.enabled = false;
-        textDisplay.enabled = false;
+        //textDisplay.enabled = false;
     }
 
     void OnTriggerExit2D(Collider2D other)

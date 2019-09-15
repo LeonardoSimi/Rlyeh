@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
+//using TMPro;
 
 public class NewDialog : MonoBehaviour {
 
-    public TextMeshProUGUI textDisplay;
+    //public TextMeshProUGUI textDisplay;
     [TextArea(3, 10)]
     public string[] sentences;
     private int index;
@@ -30,7 +30,7 @@ public class NewDialog : MonoBehaviour {
         player = GameObject.Find("Player").GetComponent<Player>();
         StartCoroutine(Type());
         textBox.enabled = false;
-        textDisplay.enabled = false;
+        //textDisplay.enabled = false;
     }
 
     void Update()
@@ -41,21 +41,21 @@ public class NewDialog : MonoBehaviour {
             {
                 dialStart = true;
                 textBox.enabled = true;
-                textDisplay.enabled = true;
+                //textDisplay.enabled = true;
             }
         }
         if (dialStart)
         {
             player.canMove = false;
             buttonOverlay.enabled = false;
-            if (textDisplay.text == sentences[index])
+            /*if (textDisplay.text == sentences[index])
                 {
                 textScroll.Stop();
                 if (Input.GetKeyDown(KeyCode.Space))
                     {              
                     NextSentence();
                     }
-                }           
+                }    */       
         }
     }
 
@@ -63,7 +63,7 @@ public class NewDialog : MonoBehaviour {
     {
         foreach (char letter in sentences[index].ToCharArray())
         {
-            textDisplay.text += letter;
+            //textDisplay.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
     }
@@ -74,16 +74,16 @@ public class NewDialog : MonoBehaviour {
         {
             textScroll.Play();
             index++;
-            textDisplay.text = "";
+            //textDisplay.text = "";
             StartCoroutine(Type());
         }
         else
         {
             player.canMove = true;
             textScroll.Stop();
-            textDisplay.text = "";
+            //textDisplay.text = "";
             dialStart = false;
-            textDisplay.enabled = false;
+            //textDisplay.enabled = false;
             textBox.enabled = false;
         }
     }
